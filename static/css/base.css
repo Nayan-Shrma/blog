@@ -2,5 +2,12 @@ h1{
 	color:#777777;
 }
 .small-time{
-	font-size: 60%
+	font-size: 60%;
 }
+.wmd-panel{
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+}
+ .comment-reply{
+ 	display: none;
+ }	

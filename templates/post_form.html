@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+<!-- {% load staticfiles %} -->
+
 
 	{% block head_extra %}
 		{{ form.media }}
@@ -24,7 +27,7 @@
 	<hr/>
 
 	<form method = "POST" action = " " enctype = "multipart/form-data"> {% csrf_token %}
-	{{ form.as_p }}
+	{{ form|crispy }}
 	<input class = "btn btn-success" type="submit" value="Create Post">
 	</form>
 

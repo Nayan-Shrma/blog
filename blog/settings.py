@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'markdown_deux',
     'pagedown',
     #local 
+    'comments',
     'posts',
 
 ]
@@ -59,6 +60,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+LOGIN_URL = "/login/"
 ROOT_URLCONF = 'blog.urls'
 
 TEMPLATES = [

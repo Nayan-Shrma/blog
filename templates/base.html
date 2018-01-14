@@ -35,6 +35,20 @@
 
 
 <div class = "container">
+	<ol class = "breadcrumb">
+		<li class="breadcrumb-item"><a href = "{% url 'posts:list' %}"  >Home</a></li>
+		<!-- <li class="breadcrumb-item"><a href = "{% url 'posts:list' %}" >Posts</a></li> -->
+		{% block post_detail_link %}
+
+		{% endblock post_detail_link %}
+		{% if not request.user.is_authenticated %}
+		<li class = "breadcrumb-item float-right"><a href = "{% url 'register' %}">Register</a></li>
+		<li class = "breadcrumb-item float-right"><a href = "{% url 'login' %}">Login</a></li>
+		{% else %}
+		<li class = "breadcrumb-item float-md-right"><a href = "{% url 'logout' %}">Logout</a></li>
+		{% endif %}
+	</ol>
+
 {% block content %}
 	
 {% endblock content %}
@@ -50,6 +64,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.9/marked.min.js"></script>
+<script src="https://use.fontawesome.com/b91950b30d.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -97,6 +112,11 @@
 		titleInput.keyup(function(){
 			var newTitle = $(this).val()
 			setTitle(newTitle)
+		})
+
+		$(".comment-reply-btn").click(function(event){
+			event.preventDefault();
+			$(this).parent().next(".comment-reply").fadeToggle();
 		})
 
 		//preview-title
